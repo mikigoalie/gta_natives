@@ -1,0 +1,30 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+* {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.native-item {
+  width: 100%;
+  display: flex;
+  transition: all 300ms ease;
+  padding: 0.5rem;
+  border-radius: .25rem;
+  cursor: pointer;
+}
+
+.native-item:hover {
+  background-color: var(--mantine-color-dark-3)
+}
+
+.native-item-selected {
+  background-color: var(--mantine-color-dark-4)
+}

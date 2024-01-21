@@ -1,0 +1,18 @@
+import { useState } from 'react'
+import './App.css'
+import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
+import Container from './Pages/Container'
+import '@mantine/code-highlight/styles.css';
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <MantineProvider>
+      <Container/>
+    </MantineProvider>
+  )
+}
+
+export default App
