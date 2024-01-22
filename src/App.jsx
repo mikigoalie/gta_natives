@@ -9,7 +9,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <MantineProvider theme={{ colorScheme: 'dark' }}>
+    <MantineProvider  defaultColorScheme="dark" theme={{ colorScheme: 'dark' }}>
       <Container/>
     </MantineProvider>
   )
