@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AppShell, Burger, Group, Accordion, Loader, ScrollArea, TextInput, SegmentedControl } from '@mantine/core';
+import { AppShell, Burger, Group, Accordion, ScrollArea, TextInput, SegmentedControl } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import NativesList from '../assets/natives.json';
 import CFXNativesList from '../assets/cfx.json';
@@ -23,15 +23,10 @@ export default function Container() {
 
     return (
         <AppShell
-            header={{ height: 60 }}
+/*             header={{ height: 60 }} */
             navbar={{ width: 350, breakpoint: 'sm', collapsed: { mobile: !opened } }}
             padding="md"
         >
-            <AppShell.Header>
-                <Group h="100%" px="md">
-                    <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-                </Group>
-            </AppShell.Header>
             <AppShell.Navbar>
                 <TextInput
                     leftSection={<SearchIcon />}
@@ -40,25 +35,28 @@ export default function Container() {
                     placeholder="Search natives"
                 />
 
-                <SegmentedControl
-                    m="md"
-                    value={tab}
-                    onChange={setTab}
-                    defaultValue="fivem"
-                    data={[
-                        { label: 'FiveM', value: 'fivem' },
-                        { label: 'CFX', value: 'cfx' },
-                    ]}
-                />
+                <div style={{ width: "100%", padding: "1rem" }}>
+                    <SegmentedControl
+                        w="100%"
+                        value={tab}
+                        onChange={setTab}
+                        defaultValue="fivem"
+                        data={[
+                            { label: 'FiveM', value: 'fivem' },
+                            { label: 'CFX', value: 'cfx' },
+                        ]}
+                    />
+                </div>
 
-                <ScrollArea offsetScrollbars h='100%' style={{ display: "flex", padding: "0.25rem" }} scrollbarSize={8}>
+
+                <ScrollArea offsetScrollbars h='100%' style={{ display: "flex", padding: "0.25rem" }} scrollbarSize={12}>
                     {
                         Object.keys(tab === "fivem" ? NativesList : CFXNativesList).map((key, index) => (
                             <Accordion
                                 key={index}
                                 styles={{
                                     item: { border: "none" },
-                                    panel: { backgroundColor: "#2E2E2E", marginInline: "1rem" }
+                                    panel: { backgroundColor: "var(--mantine-color-dark-8", marginInline: "1rem" }
                                 }}
                             >
                                 <Accordion.Item key={key} value={key}>
@@ -96,7 +94,7 @@ export default function Container() {
 
 
             </AppShell.Navbar>
-            <AppShell.Main><NativeBody currentNative={currentNative} /></AppShell.Main>
+            <AppShell.Main m="lg"><NativeBody currentNative={currentNative} /></AppShell.Main>
         </AppShell>
     );
 }
